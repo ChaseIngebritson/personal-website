@@ -75,10 +75,6 @@ export default {
   margin-right: 1.5rem;
 }
 
-.download-icon {
-  margin-left: 0.5rem;
-}
-
 .headshot-container, .button-container {
   margin-bottom: 1rem;
 }
@@ -104,6 +100,10 @@ export default {
 
   .headshot-container, .button-container {
     margin-bottom: 0;
+  }
+
+  .download-icon {
+    margin-left: 0.5rem;
   }
 }
 </style>
