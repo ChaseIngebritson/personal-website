@@ -1,40 +1,36 @@
 <template>
-  <b-container fluid class="content">
-    <b-row class="landing" align-v="center">
-      <b-col cols="9" offset="1">
-        <b-row>
-          <b-col>
-            <h1 class="heading">Portfolio</h1>
-          </b-col>
-        </b-row>
-        <b-row class="button-container">
-          <b-col>
-            <b-form-group v-slot="{ ariaDescribedby }">
-              <b-form-radio-group
-                id="btn-radios-type"
-                v-model="selectedType"
-                :options="types"
-                :aria-describedby="ariaDescribedby"
-                button-variant="outline-secondary"
-                size="lg"
-                name="radio-btn-outline"
-                buttons
-              ></b-form-radio-group>
-            </b-form-group>
-          </b-col>
-        </b-row>
-        <b-row>
-          <b-col v-for="project in selectedProjects" :key="project.name" cols="4" class="project">
-            <div class="image" :style='`background-image: url("${project.image}")`'>
-              <div class="name">{{ project.name }}</div>
-              <div class="origin">{{ project.origin }}</div>
-              <div class="curtain"></div>
-            </div>
-          </b-col>
-        </b-row>
+  <b-col cols="9" offset="1">
+    <b-row>
+      <b-col>
+        <h1 class="heading">Portfolio</h1>
       </b-col>
     </b-row>
-  </b-container>
+    <b-row class="button-container">
+      <b-col>
+        <b-form-group v-slot="{ ariaDescribedby }">
+          <b-form-radio-group
+            id="btn-radios-type"
+            v-model="selectedType"
+            :options="types"
+            :aria-describedby="ariaDescribedby"
+            button-variant="outline-secondary"
+            size="lg"
+            name="radio-btn-outline"
+            buttons
+          ></b-form-radio-group>
+        </b-form-group>
+      </b-col>
+    </b-row>
+    <b-row>
+      <b-col v-for="project in selectedProjects" :key="project.name" cols="4" class="project">
+        <div class="image" :style='`background-image: url("${project.image}")`'>
+          <div class="name">{{ project.name }}</div>
+          <div class="origin">{{ project.origin }}</div>
+          <div class="curtain"></div>
+        </div>
+      </b-col>
+    </b-row>
+  </b-col>
 </template>
 
 <script>
