@@ -1,10 +1,10 @@
 <template>
   <b-col class="content">
     <!-- Using form-row for the compact gutters -->
-    <div :is="$screen.md ? 'b-row' : 'b-form-row'">
-      <b-col cols="6" md="6" lg="5" align-self="center" class="headshot-container">
+    <div :is="$screen.md ? 'b-row' : 'b-form-row'" align-h="start">
+      <b-col cols="5" sm="4" md="4" lg="4" xl="3" align-self="center" class="headshot-container">
         <b-img 
-          :src="`${baseUrl}assets/images/headshot.jpg`" 
+          :src="`${baseUrl}assets/images/headshot.jpeg`" 
           right
           class="headshot"
         />
@@ -16,7 +16,7 @@
           </b-col>
         </b-row>
       </b-col>
-      <b-col align-self="center">
+      <b-col align-self="center" md="6">
         <h3>Hello! I'm</h3>
         <h1>Chase Ingebritson</h1>
         <h2>Software Engineer</h2>
@@ -28,14 +28,16 @@
           <b-button 
             :size="$screen.md ? 'lg' : 'md'"
             :block="!$screen.md"
-            class="contact-me">
+            class="contact-me"
+            :href="mailLink"
+            target="_blank">
             Contact Me
           </b-button>
           <b-button 
             :size="$screen.md ? 'lg' : 'md'" 
             variant="outline-secondary"
             :block="!$screen.md"
-          >
+            href="https://www.linkedin.com/in/chase-ingebritson/">
             Download CV
             <BIconFileEarmarkArrowDownFill class="download-icon" />
           </b-button>
@@ -51,6 +53,12 @@ export default {
   data: () => ({
     baseUrl: process.env.BASE_URL,
   }),
+  computed: {
+    mailLink () {
+      const subject = encodeURIComponent('Hi Chase, I\'d like to get in touch!')
+      return `mailto:chase@inge.me?subject=${subject}`
+    }
+  }
 }
 </script>
 
@@ -66,7 +74,7 @@ export default {
 .headshot {
   border-radius: 7px;
   max-width: 100%;
-  max-height: 600px;
+  max-height: 250px;
 }
 
 .contact-me {
@@ -87,7 +95,7 @@ export default {
 
 @include media-breakpoint-up(md) {
   .content {
-    transform: translateX(-15%);
+    transform: translateX(-7.5%);
   }
 
   .headshot-container, .button-container {
@@ -96,6 +104,10 @@ export default {
 
   .download-icon {
     margin-left: 0.5rem;
+  }
+
+  .headshot {
+    max-height: 600px;
   }
 }
 </style>

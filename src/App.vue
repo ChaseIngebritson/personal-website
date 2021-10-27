@@ -13,21 +13,26 @@
         />
       </b-col>
       <b-col>
-        <portal to="mobile-nav" :disabled="$screen.md">
-          <Nav />
-        </portal>
-        <b-container fluid class="content">
-          <b-row class="landing" align-v="center">
+        <b-container fluid class="content-grid">
+          <!-- Nav -->
+          <b-row>
+            <b-col>
+              <portal to="mobile-nav" :disabled="$screen.md">
+                <Nav />
+              </portal>
+            </b-col>
+          </b-row>
+
+          <b-row align-v="center" class="router-container">
             <router-view />
           </b-row>
+
+          <div class="social-icons mb-3">
+            <b-link href="https://github.com/ChaseIngebritson"><BIconGithub /></b-link>
+            <b-link href="https://twitter.com/Goslopo"><BIconTwitter /></b-link>
+            <b-link href="https://www.linkedin.com/in/chase-ingebritson/"><BIconLinkedin /></b-link>
+          </div>
         </b-container>
-        <b-row>
-          <b-col>
-            <b-link class="social-icon"><BIconGithub /></b-link>
-            <b-link class="social-icon"><BIconTwitter /></b-link>
-            <b-link class="social-icon"><BIconLinkedin /></b-link>
-          </b-col>
-        </b-row>
       </b-col>
     </b-row>
   </b-container>
@@ -48,10 +53,7 @@ export default {
     mapStyle: 'mapbox://styles/mapbox/light-v10',
     mapCenter: [-93.26499482579126, 44.97659137876903],
     mapZoom: 12.055186286143732
-  }),
-  mounted () {
-    console.log(this.mapCetner)
-  }
+  })
 }
 </script>
 
@@ -73,8 +75,30 @@ export default {
   border-bottom: 5px solid var(--secondary);
 }
 
-.social-icon {
-  color: var(--secondary);
+.social-icons {
+  position: absolute;
+  bottom: 0;
+  left: 1rem;
+
+  a {
+    color: var(--secondary);
+    font-size: 1.5rem; 
+    margin-right: 1rem;
+
+    &:hover {
+      color: #34ff8e;
+    }
+  }
+}
+
+.router-container {
+  // Height - Nav - Footer
+  height: calc(100% - 72px - 36px);
+}
+
+.content-grid {
+  position: relative;
+  height: 100%;
 }
 
 @include media-breakpoint-up(md) {
@@ -84,8 +108,8 @@ export default {
     border-bottom: none;
   }
 
-  .landing {
-    height: calc(100vh - 60px - 100px);
+  .social-icons {
+    padding-left: 1rem;
   }
 }
 </style>

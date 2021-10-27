@@ -10,8 +10,9 @@
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav>
         <b-nav-item to="/" :active="$route.name === 'home'">Home</b-nav-item>
-        <b-nav-item to="portfolio" :active="$route.name === 'portfolio'">Portfolio</b-nav-item>
+        <!-- <b-nav-item to="portfolio" :active="$route.name === 'portfolio'">Portfolio</b-nav-item>
         <b-nav-item to="tools" :active="$route.name === 'tools'">Tools</b-nav-item>
+        <b-nav-item to="contact" :active="$route.name === 'contact'">Contact</b-nav-item> -->
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>

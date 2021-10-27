@@ -20,13 +20,15 @@ Vue.use(VueScreen, 'bootstrap')
 
 const Portfolio = () => import('@/views/Portfolio')
 const Tools = () => import('@/views/Tools')
+const Contact = () => import('@/views/Contact')
 
 const router = new VueRouter({
   mode: 'history',
   routes: [
     { name: 'home', path: '/', component: Home },
     { name: 'portfolio', path: '/portfolio', component: Portfolio },
-    { name: 'tools', path: '/tools', component: Tools }
+    { name: 'tools', path: '/tools', component: Tools },
+    { name: 'contact', path: '/contact', component: Contact }
   ]
 })
 
