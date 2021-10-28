@@ -1,7 +1,7 @@
 <template>
   <b-container fluid class="app">
     <b-row no-gutters>
-      <portal-target name="mobile-nav" />
+      <portal-target name="mobile-nav" class="mobile-nav" />
       <b-col cols="12" md="2" class="map-container">
         <MglMap
           :accessToken="mapboxToken"
@@ -63,7 +63,6 @@ export default {
 .app {
   height: 100vh;
   padding: 0;
-  position: fixed;
 }
 
 .map-container {
@@ -73,6 +72,14 @@ export default {
 .map {
   height: 20vh;
   border-bottom: 5px solid var(--secondary);
+}
+
+.mobile-nav {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  width: 100%;
+  background-color: var(--primary);
 }
 
 .social-icons {
