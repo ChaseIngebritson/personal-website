@@ -1,36 +1,21 @@
 <template>
-  <b-col cols="9" offset="1">
+  <b-container class="portfolio-view">
     <b-row>
-      <b-col>
+      <b-col offset="2" offset-md="1">
         <h1 class="heading">Portfolio</h1>
       </b-col>
     </b-row>
-    <b-row class="button-container">
-      <b-col>
-        <b-form-group v-slot="{ ariaDescribedby }">
-          <b-form-radio-group
-            id="btn-radios-type"
-            v-model="selectedType"
-            :options="types"
-            :aria-describedby="ariaDescribedby"
-            button-variant="outline-secondary"
-            size="lg"
-            name="radio-btn-outline"
-            buttons
-          ></b-form-radio-group>
-        </b-form-group>
-      </b-col>
-    </b-row>
     <b-row>
-      <b-col v-for="project in selectedProjects" :key="project.name" cols="4" class="project">
-        <div class="image" :style='`background-image: url("${project.image}")`'>
+      <b-col v-for="project in projects" :key="project.name" cols="12" md="6" class="project">
+        <b-img :src="project.image" center class="image" />
+        <!-- <div class="image" :style='`background-image: url("${project.image}")`'>
           <div class="name">{{ project.name }}</div>
           <div class="origin">{{ project.origin }}</div>
           <div class="curtain"></div>
-        </div>
+        </div> -->
       </b-col>
     </b-row>
-  </b-col>
+  </b-container>
 </template>
 
 <script>
@@ -38,42 +23,30 @@ import projects from '@/mixins/projects'
 
 export default {
   name: 'Portfolio',
-  mixins: [projects],
-  data: () => ({
-    selectedType: 'all',
-    types: [
-      { text: 'All', value: 'all' },
-      { text: 'Front End', value: 'front' },
-      { text: 'Back End', value: 'back' }
-    ]
-  }),
-  computed: {
-    selectedProjects () {
-      if (this.selectedType === 'all') return this.projects
-
-      return this.projects.filter(project => 
-        project.types.includes(this.selectedType)
-      )
-    }
-  }
+  mixins: [projects]
 }
 </script>
 
 <style lang="scss" scoped>
 @import '~bootstrap/scss/bootstrap.scss';
 
+.portfolio-view {
+  margin-top: 1rem;
+}
+
 .heading {
+  font-size: 36px;
+
   &::before {
     content: "";
-    border-bottom: 3px solid var(--secondary);
+    border-bottom: 2px solid var(--secondary);
     border-radius: 10px;
 
     position: absolute;
-    left: -70px;
-    top: calc(50% - 3px);
-
-    width: 70px;
-    height: 3px;
+    top: calc(50% - 2px);
+    height: 2px;
+    left: -40px;
+    width: 45px;
   }
 }
 
@@ -93,11 +66,7 @@ export default {
 
   .image {
     border-radius: 7px;
-    margin: 0 auto;
-    width: 225px;
-    height: 250px;
-    position: relative;
-    margin: auto;
+    width: 100%;
   }
 
   .curtain {
@@ -128,6 +97,18 @@ export default {
 @include media-breakpoint-up(md) {
   .landing {
     height: calc(100vh - 60px);
+  }
+
+  .heading {
+    font-size: 48px;
+    
+    &::before {
+      border-bottom: 3px solid var(--secondary);
+      top: calc(50% - 3px);
+      height: 3px;
+      left: -70px;
+      width: 70px;
+    }
   }
 }
 </style>

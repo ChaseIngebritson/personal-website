@@ -1,7 +1,7 @@
 <template>
-  <b-container fluid class="app">
-    <b-row no-gutters>
-      <portal-target name="mobile-nav" class="mobile-nav" />
+  <b-container fluid class="app" :class="{ 'prevent-scroll': preventScroll }">
+    <b-row no-gutters class="app-contents">
+      <portal-target name="mobile-nav" class="mobile-nav" v-if="!$screen.md" />
       <b-col cols="12" md="2" class="map-container">
         <MglMap
           :accessToken="mapboxToken"
@@ -12,26 +12,28 @@
           class="map"
         />
       </b-col>
-      <b-col>
+      <b-col class="app-sub-contents">
         <b-container fluid class="content-grid">
           <!-- Nav -->
           <b-row>
             <b-col>
               <portal to="mobile-nav" :disabled="$screen.md">
-                <Nav />
+                <Nav class="nav" />
               </portal>
             </b-col>
           </b-row>
 
-          <b-row align-v="center" class="router-container">
+          <!-- Router -->
+          <b-row align-v="end" class="router-container">
             <router-view />
-          </b-row>
 
-          <div class="social-icons mb-3">
-            <b-link href="https://github.com/ChaseIngebritson"><BIconGithub /></b-link>
-            <b-link href="https://twitter.com/Goslopo"><BIconTwitter /></b-link>
-            <b-link href="https://www.linkedin.com/in/chase-ingebritson/"><BIconLinkedin /></b-link>
-          </div>
+            <!-- Icons -->
+            <b-col cols="12" class="social-icons">
+              <b-link href="https://github.com/ChaseIngebritson"><BIconGithub /></b-link>
+              <b-link href="https://twitter.com/Goslopo"><BIconTwitter /></b-link>
+              <b-link href="https://www.linkedin.com/in/chase-ingebritson/"><BIconLinkedin /></b-link>
+            </b-col>
+          </b-row>
         </b-container>
       </b-col>
     </b-row>
@@ -53,7 +55,12 @@ export default {
     mapStyle: 'mapbox://styles/mapbox/light-v10',
     mapCenter: [-93.26499482579126, 44.97659137876903],
     mapZoom: 12.055186286143732
-  })
+  }),
+  computed: {
+    preventScroll () {
+      return this.$route.meta.preventScroll === true
+    }
+  }
 }
 </script>
 
@@ -63,19 +70,37 @@ export default {
 .app {
   height: 100vh;
   padding: 0;
+
+  &.prevent-scroll {
+    overflow: hidden;
+  }
+}
+
+.app-contents {
+  flex-flow: column;
+  height: 100%;
+}
+
+.app-sub-contents {
+  flex: 1 1 auto;
+  // overflow: auto;
 }
 
 .map-container {
   position: sticky;
+  flex: 0 0 15vh;
+  overflow: visible;
+  border-bottom: 5px solid var(--secondary);
 }
 
-.map {
-  height: 20vh;
-  border-bottom: 5px solid var(--secondary);
+.nav {
+  position: sticky;
+  top: 0;
 }
 
 .mobile-nav {
   position: sticky;
+  flex: 0 1 auto;
   top: 0;
   z-index: 3;
   width: 100%;
@@ -83,9 +108,10 @@ export default {
 }
 
 .social-icons {
-  position: absolute;
-  bottom: 0;
-  left: 1rem;
+  background-color: var(--primary);
+  width: 100%;
+  // margin-left: 1rem;
+  padding: 5px;
 
   a {
     color: var(--secondary);
@@ -99,16 +125,23 @@ export default {
 }
 
 .router-container {
-  // Height - Nav - Footer
-  height: calc(100% - 72px - 36px);
+  display: flex;
+  flex-grow: 1;
+  // overflow: auto; // Causes an issue with the banner image being covered
 }
 
 .content-grid {
   position: relative;
   height: 100%;
+  flex-flow: column;
+  display: flex;
 }
 
 @include media-breakpoint-up(md) {
+  .app-contents {
+    flex-flow: row;
+  }
+
   .map {
     height: 100vh;
     border-right: 5px solid var(--secondary);
@@ -116,7 +149,7 @@ export default {
   }
 
   .social-icons {
-    padding-left: 1rem;
+    margin-left: 1rem;
   }
 }
 </style>
