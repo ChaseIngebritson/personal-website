@@ -1,5 +1,5 @@
 <template>
-  <b-container fluid class="app" :class="{ 'prevent-scroll': preventScroll }">
+  <b-container fluid class="app" :class="{ 'route-scroll': routeScroll }">
     <b-row no-gutters class="app-contents">
       <portal-target name="mobile-nav" class="mobile-nav" v-if="!$screen.md" />
       <b-col cols="12" md="2" class="map-container">
@@ -12,7 +12,7 @@
           class="map"
         />
       </b-col>
-      <b-col class="app-sub-contents">
+      <b-col class="app-sub-contents" :class="{ 'route-scroll': routeScroll }">
         <b-container fluid class="content-grid">
           <!-- Nav -->
           <b-row>
@@ -24,7 +24,7 @@
           </b-row>
 
           <!-- Router -->
-          <b-row align-v="end" class="router-container">
+          <b-row class="router-container" :class="{ 'route-scroll': routeScroll }">
             <router-view />
 
             <!-- Icons -->
@@ -57,8 +57,8 @@ export default {
     mapZoom: 12.055186286143732
   }),
   computed: {
-    preventScroll () {
-      return this.$route.meta.preventScroll === true
+    routeScroll () {
+      return this.$route.meta.routeScroll === true
     }
   }
 }
@@ -71,7 +71,7 @@ export default {
   height: 100vh;
   padding: 0;
 
-  &.prevent-scroll {
+  &.route-scroll {
     overflow: hidden;
   }
 }
@@ -83,7 +83,10 @@ export default {
 
 .app-sub-contents {
   flex: 1 1 auto;
-  // overflow: auto;
+
+  &.route-scroll {
+    overflow: auto;
+  }
 }
 
 .map-container {
@@ -110,13 +113,12 @@ export default {
 .social-icons {
   background-color: var(--primary);
   width: 100%;
-  // margin-left: 1rem;
   padding: 5px;
 
   a {
     color: var(--secondary);
-    font-size: 1.5rem; 
-    margin-right: 1rem;
+    font-size: 1.5rem;
+    margin-left: 1rem;
 
     &:hover {
       color: #34ff8e;
@@ -127,7 +129,12 @@ export default {
 .router-container {
   display: flex;
   flex-grow: 1;
-  // overflow: auto; // Causes an issue with the banner image being covered
+  align-content: space-between;
+  align-items: flex-end;
+
+  &.route-scroll {
+    overflow: auto;
+  }
 }
 
 .content-grid {
@@ -142,14 +149,18 @@ export default {
     flex-flow: row;
   }
 
+  .map-container {
+    flex: 0 0 20vh;
+  }
+
   .map {
     height: 100vh;
     border-right: 5px solid var(--secondary);
     border-bottom: none;
   }
 
-  .social-icons {
-    margin-left: 1rem;
+  .router-container {
+    align-content: normal;
   }
 }
 </style>

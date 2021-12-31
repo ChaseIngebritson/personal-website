@@ -26,7 +26,8 @@ const router = new VueRouter({
   mode: 'history',
   routes: [
     { name: 'home', path: '/', component: Home },
-    { name: 'portfolio', path: '/portfolio', component: Portfolio, meta: { preventScroll: true }},
+    // routeScroll allows the nested contents of the route to scroll instead of the full page
+    { name: 'portfolio', path: '/portfolio', component: Portfolio, meta: { routeScroll: true }},
     { name: 'tools', path: '/tools', component: Tools },
     { name: 'contact', path: '/contact', component: Contact }
   ]

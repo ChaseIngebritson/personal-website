@@ -68,7 +68,7 @@ export default {
 
 .content {
   z-index: 2;
-  transform: translateY(-15%);
+  transform: translateY(-5vh);
 }
 
 .headshot {
@@ -91,6 +91,12 @@ export default {
 
 .button-container > .row {
   height: 100%;
+}
+
+@media screen and (min-width: 400px) {
+  .content {
+    transform: translateY(-10vh);
+  }
 }
 
 @include media-breakpoint-up(md) {
