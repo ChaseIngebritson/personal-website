@@ -2,11 +2,10 @@ const projects = {
   data: () => ({
     projects: [
       { 
-        name: 'Project 1', 
-        types: ['front', 'back'], 
+        name: 'Campus Map', 
         origin: 'University of St. Thomas', 
-        link: 'https://localhost:8080', 
-        image: `${process.env.BASE_URL}assets/images/project.jpeg` 
+        link: 'https://campusmap.stthomas.edu/', 
+        image: `${process.env.BASE_URL}assets/images/campus_map.png` 
       },
       { 
         name: 'Project 2', 

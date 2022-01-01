@@ -7,7 +7,9 @@
     </b-row>
     <b-row>
       <b-col v-for="project in projects" :key="project.name" cols="12" md="6" class="project">
-        <b-img :src="project.image" center class="image" />
+        <b-img :src="project.image" center class="image mb-2" />
+        <h2 class="h3">{{ project.name }}</h2>
+        <p>{{ project.origin }}</p>
         <!-- <div class="image" :style='`background-image: url("${project.image}")`'>
           <div class="name">{{ project.name }}</div>
           <div class="origin">{{ project.origin }}</div>

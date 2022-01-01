@@ -2,7 +2,7 @@
   <b-col class="content">
     <!-- Using form-row for the compact gutters -->
     <div :is="$screen.md ? 'b-row' : 'b-form-row'" align-h="start">
-      <b-col cols="5" sm="4" md="4" lg="4" xl="3" align-self="center" class="headshot-container">
+      <b-col cols="5" sm="5" md="5" lg="4" xl="4" align-self="center" class="headshot-container">
         <b-img 
           :src="`${baseUrl}assets/images/headshot.jpeg`" 
           right
