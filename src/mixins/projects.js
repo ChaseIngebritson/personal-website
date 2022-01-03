@@ -5,40 +5,35 @@ const projects = {
         name: 'Campus Map', 
         origin: 'University of St. Thomas', 
         link: 'https://campusmap.stthomas.edu/', 
-        image: `${process.env.BASE_URL}assets/images/campus_map.png` 
+        image: `${process.env.BASE_URL}assets/images/campus_map.jpeg` 
       },
       { 
-        name: 'Project 2', 
-        types: ['front', 'back'], 
+        name: 'Shuttle Tracker', 
         origin: 'University of St. Thomas', 
-        link: 'https://localhost:8080', 
-        image: `${process.env.BASE_URL}assets/images/project.jpeg` 
+        link: 'https://bustracker.stthomas.edu/', 
+        image: `${process.env.BASE_URL}assets/images/shuttle_tracker.jpeg` 
       },
       { 
-        name: 'Project 3', 
-        types: ['front'], 
+        name: 'URL Shortener', 
         origin: 'University of St. Thomas', 
-        link: 'https://localhost:8080', 
-        image: `${process.env.BASE_URL}assets/images/project.jpeg` 
+        link: 'https://link.stthomas.edu/', 
+        image: `${process.env.BASE_URL}assets/images/url_shortener.jpeg` 
       },
       { 
-        name: 'Project 4', 
-        types: ['front', 'back'], 
+        name: 'My Actions Learning Tools Interoperability Tool', 
         origin: 'University of St. Thomas', 
-        link: 'https://localhost:8080', 
-        image: `${process.env.BASE_URL}assets/images/project.jpeg` 
+        // link: 'https://localhost:8080', 
+        image: `${process.env.BASE_URL}assets/images/lti.jpeg` 
       },{ 
-        name: 'Project 5', 
-        types: ['back'], 
+        name: 'QnA Chat Bot', 
         origin: 'University of St. Thomas', 
-        link: 'https://localhost:8080', 
-        image: `${process.env.BASE_URL}assets/images/project.jpeg` 
+        // link: 'https://localhost:8080', 
+        image: `${process.env.BASE_URL}assets/images/chat_bot.jpeg` 
       },
       { 
-        name: 'Project 6', 
-        types: ['back'], 
+        name: 'UST Mobile App', 
         origin: 'University of St. Thomas', 
-        link: 'https://localhost:8080', 
+        link: 'https://apps.apple.com/us/app/u-of-st-thomas-minnesota/id1459917428', 
         image: `${process.env.BASE_URL}assets/images/project.jpeg` 
       },
     ],

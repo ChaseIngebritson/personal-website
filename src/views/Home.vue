@@ -63,8 +63,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/styles/theme.scss';
-@import '~bootstrap/scss/bootstrap.scss';
+@import '@/styles/shared.scss';
 
 .content {
   z-index: 2;

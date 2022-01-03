@@ -7,7 +7,7 @@ import PortalVue from 'portal-vue'
 import VueScreen from 'vue-screen'
 import Home from '@/views/Home'
 
-import './styles/app.scss'
+import '@/styles/app.scss'
 
 import App from '@/App.vue'
 

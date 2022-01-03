@@ -65,7 +65,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import 'node_modules/bootstrap/scss/bootstrap.scss';
+@import '@/styles/shared.scss';
 
 .app {
   height: 100vh;

@@ -13,22 +13,36 @@ p {
 
 h1 {
   color: var(--white);
-  font-size: 64px !important;
+  font-size: 64px;
   font-weight: bold;
 }
 
 h2 {
   color: var(--secondary);
-  font-size: 48px !important;
+  font-size: 48px;
 }
 
 h3 {
   color: var(--white);
-  font-size: 24px !important;
+  font-size: 24px;
 }
 
 .btn-lg {
   padding-left: 2rem;
   padding-right: 2rem;
   font-weight: bold;
+}
+
+.dash {
+  &::before {
+    content: "";
+    border-bottom: 2px solid var(--secondary);
+    border-radius: 10px;
+
+    position: absolute;
+    top: calc(50% - 2px);
+    height: 2px;
+    left: -40px;
+    width: 45px;
+  }
 }
