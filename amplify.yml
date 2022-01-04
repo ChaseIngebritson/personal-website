@@ -1,7 +1,7 @@
 version: 1
 env:
   variables:
-    SES_EMAIL: noreply@inge.me
+    sesEmail: noreply@inge.me
 backend:
   phases:
     build:
