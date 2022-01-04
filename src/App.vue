@@ -18,7 +18,11 @@
           <b-row>
             <b-col class="nav-container">
               <portal to="mobile-nav" :disabled="$screen.md">
-                <Nav :bordered="!scrollIsTop" class="nav" />
+                <Nav 
+                  :bordered="!scrollIsTop" 
+                  :percentageScrolled="scrollPercentage"
+                  class="nav" 
+                />
               </portal>
             </b-col>
           </b-row>
@@ -55,7 +59,8 @@ export default {
     mapStyle: 'mapbox://styles/mapbox/light-v10',
     mapCenter: [-93.26499482579126, 44.97659137876903],
     mapZoom: 12.055186286143732,
-    scrollIsTop: true
+    scrollIsTop: true,
+    scrollPercentage: 0
   }),
   computed: {
     routeScroll () {
@@ -70,9 +75,19 @@ export default {
     const routerContainer = this.$refs['router-container']
     routerContainer.removeEventListener('scroll', this.handleRouterScroll)
   },
+  watch: {
+    $route (to, from) {
+      if (to.name !== from.name) {
+        this.scrollIsTop = true,
+        this.scrollPercentage = 0
+      }
+    }
+  },
   methods: {
     handleRouterScroll (e) {
       const target = e.target
+
+      this.scrollPercentage = Math.round((target.scrollTop / (target.scrollHeight - target.clientHeight)) * 100)
 
       if (!this.scrollIsTop && target.scrollTop === 0) {
         this.scrollIsTop = true

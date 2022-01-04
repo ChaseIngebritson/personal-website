@@ -29,8 +29,7 @@
             :size="$screen.md ? 'lg' : 'md'"
             :block="!$screen.md"
             class="contact-me"
-            :href="mailLink"
-            target="_blank">
+            to="contact">
             Contact Me
           </b-button>
           <b-button 
@@ -52,13 +51,7 @@ export default {
   name: 'Home',
   data: () => ({
     baseUrl: process.env.BASE_URL,
-  }),
-  computed: {
-    mailLink () {
-      const subject = encodeURIComponent('Hi Chase, I\'d like to get in touch!')
-      return `mailto:chase@inge.me?subject=${subject}`
-    }
-  }
+  })
 }
 </script>
 

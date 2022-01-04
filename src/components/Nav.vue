@@ -1,5 +1,5 @@
 <template>
-  <b-navbar type="dark" toggleable="md" :class="{ bordered }">
+  <b-navbar type="dark" toggleable="md" :class="{ bordered }" :style="cssVars">
     <b-button 
       v-b-toggle.nav-collapse 
       variant="outline-primary"
@@ -31,12 +31,23 @@ export default {
     bordered: {
       type: Boolean,
       default: false
+    },
+    percentageScrolled: {
+      type: Number,
+      default: 0
     }
   },
   data: () => ({
     navIsOpen: false,
     scrolledToTop: true
   }),
+  computed: {
+    cssVars () {
+      return {
+        '--border-percent': `${this.percentageScrolled}%` ,
+      }
+    }
+  },
   mounted () {
     this.$root.$on('bv::collapse::state', (target) => {
       if (target === 'nav-collapse') this.navIsOpen = !this.navIsOpen
@@ -53,7 +64,7 @@ export default {
 
   &::before {
     content: '';
-    transition: 0.3s cubic-bezier(0.75, 0, 0, 0.75) width;
+    transition: 0.3s ease-out width;
     border-bottom: 3px solid var(--secondary);
     position: absolute;
     bottom: 0;
@@ -62,7 +73,7 @@ export default {
   }
 
   &.bordered::before {
-    width: 100%;
+    width: var(--border-percent);
   }
 }
 

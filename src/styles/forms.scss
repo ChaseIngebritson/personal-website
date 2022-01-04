@@ -1,0 +1,30 @@
+.form-group {
+  position: relative;
+
+  label {
+    color: var(--white);
+  }
+
+  .underline {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+  }
+
+  .form-control, .form-control:focus {
+    background-color: transparent;
+    border: none;
+    padding-bottom: 20px;
+    color: var(--white);
+  }
+
+  .form-control ~ .underline::after {
+    content: '';
+    border-bottom: 3px solid var(--secondary);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+}
