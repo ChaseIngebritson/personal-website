@@ -5,9 +5,9 @@ import Mapbox from "mapbox-gl";
 import VueRouter from 'vue-router'
 import PortalVue from 'portal-vue'
 import VueScreen from 'vue-screen'
-import Amplify, { API, graphqlOperation } from 'aws-amplify'
+import Amplify from 'aws-amplify'
 
-import awsconfig from '@/aws-exports'
+import awsconfig from './aws-exports'
 import Home from '@/views/Home'
 
 import '@/styles/app.scss'
