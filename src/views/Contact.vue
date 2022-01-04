@@ -72,6 +72,8 @@
 
 <script>
 import Heading from '@/components/Heading'
+import { API, graphqlOperation } from 'aws-amplify'
+import { createContactMessage } from './graphql/mutations'
 
 export default {
   name: 'Contact',
@@ -90,10 +92,9 @@ export default {
     }
   },
   methods: {
-    handleFormSubmit (e) {
+    async handleFormSubmit (e) {
       e.preventDefault()
-      window.location = this.mailLink
-      console.log('handle form submit')
+      await API.graphql(graphqlOperation(createContactMessage, { input: this.form }))
     }
   }
 }
