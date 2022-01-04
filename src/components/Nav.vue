@@ -1,5 +1,5 @@
 <template>
-  <b-navbar type="dark" toggleable="md">
+  <b-navbar type="dark" toggleable="md" :class="{ bordered }">
     <b-button 
       v-b-toggle.nav-collapse 
       variant="outline-primary"
@@ -27,17 +27,20 @@ export default {
     Hamburger
   },
   props: {
-    routes: Object
+    routes: Object,
+    bordered: {
+      type: Boolean,
+      default: false
+    }
   },
   data: () => ({
-    navIsOpen: false
+    navIsOpen: false,
+    scrolledToTop: true
   }),
   mounted () {
     this.$root.$on('bv::collapse::state', (target) => {
       if (target === 'nav-collapse') this.navIsOpen = !this.navIsOpen
     })
-
-    console.log(this.$router.currentRoute)
   }
 }
 </script>
@@ -45,6 +48,22 @@ export default {
 <style scoped lang="scss">
 .navbar {
   position: fixed;
+  padding-left: 15px;
+  padding-right: 15px;
+
+  &::before {
+    content: '';
+    transition: 0.3s cubic-bezier(0.75, 0, 0, 0.75) width;
+    border-bottom: 3px solid var(--secondary);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+  }
+
+  &.bordered::before {
+    width: 100%;
+  }
 }
 
 .navbar-dark .navbar-nav .nav-link {

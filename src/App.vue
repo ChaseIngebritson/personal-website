@@ -16,15 +16,15 @@
         <b-container fluid class="content-grid">
           <!-- Nav -->
           <b-row>
-            <b-col>
+            <b-col class="nav-container">
               <portal to="mobile-nav" :disabled="$screen.md">
-                <Nav class="nav" />
+                <Nav :bordered="!scrollIsTop" class="nav" />
               </portal>
             </b-col>
           </b-row>
 
           <!-- Router -->
-          <b-row class="router-container" :class="{ 'route-scroll': routeScroll }">
+          <b-row class="router-container" :class="{ 'route-scroll': routeScroll }" ref="router-container">
             <router-view />
 
             <!-- Icons -->
@@ -54,11 +54,31 @@ export default {
     mapboxToken: process.env.VUE_APP_MAPBOX_TOKEN,
     mapStyle: 'mapbox://styles/mapbox/light-v10',
     mapCenter: [-93.26499482579126, 44.97659137876903],
-    mapZoom: 12.055186286143732
+    mapZoom: 12.055186286143732,
+    scrollIsTop: true
   }),
   computed: {
     routeScroll () {
       return this.$route.meta.routeScroll === true
+    }
+  },
+  mounted () {
+    const routerContainer = this.$refs['router-container']
+    routerContainer.addEventListener('scroll', this.handleRouterScroll)
+  },
+  beforeDestroy () {
+    const routerContainer = this.$refs['router-container']
+    routerContainer.removeEventListener('scroll', this.handleRouterScroll)
+  },
+  methods: {
+    handleRouterScroll (e) {
+      const target = e.target
+
+      if (!this.scrollIsTop && target.scrollTop === 0) {
+        this.scrollIsTop = true
+      } else if (this.scrollIsTop && target.scrollTop !== 0) {
+        this.scrollIsTop = false
+      }
     }
   }
 }
@@ -94,6 +114,10 @@ export default {
   flex: 0 0 15vh;
   overflow: visible;
   border-bottom: 5px solid var(--secondary);
+}
+
+.nav-container {
+  padding: 0;
 }
 
 .nav {
