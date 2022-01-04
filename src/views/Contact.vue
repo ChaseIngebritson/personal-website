@@ -71,9 +71,9 @@
 </template>
 
 <script>
-import Heading from '@/components/Heading'
 import { API, graphqlOperation } from 'aws-amplify'
-import { createContactMessage } from './graphql/mutations'
+import Heading from '@/components/Heading'
+import { createContactMessage } from '@/graphql/mutations'
 
 export default {
   name: 'Contact',
