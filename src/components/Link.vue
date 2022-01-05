@@ -23,8 +23,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import '@/styles/shared.scss';
-
 .link {
   color: var(--white);
   position: relative;

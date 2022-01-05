@@ -57,15 +57,20 @@
         />
         <span class="underline" />
       </b-form-group>
-      <b-button 
-        :size="$screen.md ? 'lg' : 'md'" 
-        variant="outline-secondary"
-        :block="!$screen.md"
-        type="submit"
+      <SubmitButton
+        :loading="request.loading" 
+        :done="request.done" 
+        doneMessage="Done"
+        :error="request.error"
       >
         Submit
-        <BIconEnvelope class="download-icon pl-2" />
-      </b-button>
+        <b-icon icon="envelope" class="pl-2" />
+
+        <template v-slot:done>
+          Done
+          <b-icon icon="check-circle" class="pl-2" />
+        </template>
+      </SubmitButton>
     </b-form>
   </b-container>
 </template>
@@ -73,28 +78,45 @@
 <script>
 import { API, graphqlOperation } from 'aws-amplify'
 import Heading from '@/components/Heading'
+import SubmitButton from '@/components/SubmitButton'
 import { createContactMessage } from '@/graphql/mutations'
 
 export default {
   name: 'Contact',
-  components: { Heading },
+  components: { 
+    Heading, 
+    SubmitButton 
+  },
   data: () => ({
     form: {
       email: '',
       name: '',
       message: 'Hey Chase, I\'d like to get in touch!'
+    },
+    request: {
+      loading: false,
+      done: false,
+      error: false
     }
   }),
-  computed: {
-    mailLink () {
-      const subject = encodeURIComponent('Hi Chase, I\'d like to get in touch!')
-      return `mailto:chase@inge.me?subject=${subject}&body=${encodeURIComponent(this.form.message)}`
-    }
-  },
   methods: {
     async handleFormSubmit (e) {
       e.preventDefault()
-      await API.graphql(graphqlOperation(createContactMessage, { input: this.form }))
+
+      try {
+        this.request.loading = true
+        const results = await API.graphql(graphqlOperation(createContactMessage, { input: this.form }))
+        console.log(results)
+        this.request.loading = false
+        this.request.done = true
+
+        setTimeout(() => {
+          this.request.done = false
+        }, 10000)
+      } catch (e) {
+        this.request.loading = false
+        this.request.error = true
+      }
     }
   }
 }
