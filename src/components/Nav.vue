@@ -57,24 +57,12 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import '@/styles/shared.scss';
+
 .navbar {
   position: fixed;
   padding-left: 15px;
   padding-right: 15px;
-
-  &::before {
-    content: '';
-    transition: 0.3s ease-out width;
-    border-bottom: 3px solid var(--secondary);
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-  }
-
-  &.bordered::before {
-    width: var(--border-percent);
-  }
 }
 
 .navbar-dark .navbar-nav .nav-link {
@@ -107,6 +95,26 @@ export default {
   &:hover:before, &:active:before, &.active:before {
     transform: scaleX(1);
     left: 12px;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .navbar {
+    margin-bottom: 1rem;
+
+     &::before {
+      content: '';
+      transition: 0.3s ease-out width;
+      border-bottom: 3px solid var(--secondary);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+    }
+
+    &.bordered::before {
+      width: var(--border-percent);
+    }
   }
 }
 </style>

@@ -46,10 +46,6 @@ export default {
 <style lang="scss" scoped>
 @import '@/styles/shared.scss';
 
-.portfolio-view {
-  margin-top: 1rem;
-}
-
 .project {
   margin-bottom: 1rem;
 

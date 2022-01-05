@@ -14,7 +14,7 @@ export default {
 @import '@/styles/shared.scss';
 
 .heading {
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .dash {

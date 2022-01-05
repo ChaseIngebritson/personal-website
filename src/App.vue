@@ -28,7 +28,14 @@
           </b-row>
 
           <!-- Router -->
-          <b-row class="router-container" :class="{ 'route-scroll': routeScroll }" ref="router-container">
+          <b-row 
+            class="router-container" 
+            :class="{ 
+              'route-scroll': routeScroll,
+              'align-normal': alignNormal
+            }" 
+            ref="router-container"
+          >
             <router-view />
 
             <!-- Icons -->
@@ -65,7 +72,11 @@ export default {
   computed: {
     routeScroll () {
       return this.$route.meta.routeScroll === true
+    },
+    alignNormal () {
+      return this.$route.meta.alignNormal === true
     }
+    
   },
   mounted () {
     const routerContainer = this.$refs['router-container']
@@ -198,7 +209,7 @@ export default {
     border-bottom: none;
   }
 
-  .router-container {
+  .router-container.align-normal {
     align-content: normal;
   }
 }

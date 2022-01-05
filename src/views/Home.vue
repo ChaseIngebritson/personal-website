@@ -19,7 +19,7 @@
       <b-col align-self="center" md="6">
         <h3>Hello! I'm</h3>
         <h1>Chase Ingebritson</h1>
-        <h2>Software Engineer</h2>
+        <h2 class="subheading">Software Engineer</h2>
         <p>
           I'm focused on the design and creation of comprehensive web-based solutions that utilize and build upon new, innovative technologies. 
           I have experience working with teams to roadmap tasks and assist in guiding projects from inception to launch.
@@ -83,6 +83,10 @@ export default {
 
 .button-container > .row {
   height: 100%;
+}
+
+.subheading {
+  font-size: 2rem;
 }
 
 @media screen and (min-width: 400px) {

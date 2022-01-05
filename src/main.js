@@ -30,11 +30,11 @@ const Contact = () => import('@/views/Contact')
 const router = new VueRouter({
   mode: 'history',
   routes: [
-    { name: 'home', path: '/', component: Home },
+    { name: 'home', path: '/', component: Home,  meta: { alignNormal: true } },
     // routeScroll allows the nested contents of the route to scroll instead of the full page
     { name: 'portfolio', path: '/portfolio', component: Portfolio, meta: { routeScroll: true }},
-    { name: 'tools', path: '/tools', component: Tools },
-    { name: 'contact', path: '/contact', component: Contact }
+    { name: 'tools', path: '/tools', component: Tools, meta: { routeScroll: true }},
+    { name: 'contact', path: '/contact', component: Contact, meta: { routeScroll: true }}
   ]
 })
 
