@@ -1,7 +1,4 @@
 version: 1
-env:
-  variables:
-    sesEmail: noreply@inge.me
 frontend:
   phases:
     preBuild:
