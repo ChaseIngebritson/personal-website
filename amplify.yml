@@ -1,9 +1,7 @@
 version: 1
-# backend:
-#   phases:
-#     build:
-#       commands:
-#         - amplifyPush --simple
+env:
+  variables:
+    sesEmail: noreply@inge.me
 frontend:
   phases:
     preBuild:
@@ -11,7 +9,6 @@ frontend:
         - yarn install
     build:
       commands:
-        - ls
         - yarn run build
   artifacts:
     baseDirectory: dist
