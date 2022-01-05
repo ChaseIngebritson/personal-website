@@ -5,8 +5,9 @@ exports.handler = async (event) => {
   for (const streamedItem of event.Records) {
     if (streamedItem.eventName === 'INSERT') {
       //pull off items from stream
-      const candidateName = streamedItem.dynamodb.NewImage.name.S
-      const candidateEmail = streamedItem.dynamodb.NewImage.email.S
+      const name = streamedItem.dynamodb.NewImage.name.S
+      const email = streamedItem.dynamodb.NewImage.email.S
+      const message = streamedItem.dynamodb.NewImage.message.S
 
       await ses
           .sendEmail({
@@ -18,7 +19,7 @@ exports.handler = async (event) => {
               Subject: { Data: 'Website Contact Submission' },
               Body: {
                 Text: { 
-                  Data: `Name: ${candidateName}\nEmail: ${candidateEmail}\n\n`
+                  Data: `Name: ${name}\nEmail: ${email}\n\n${message}`
                 },
               },
             },
