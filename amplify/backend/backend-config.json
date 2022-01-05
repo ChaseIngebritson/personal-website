@@ -21,21 +21,5 @@
       }
     }
   },
-  "function": {
-    "contactformuploader": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda",
-      "dependsOn": [
-        {
-          "category": "api",
-          "resourceName": "personalwebsite",
-          "attributes": [
-            "GraphQLAPIIdOutput",
-            "GraphQLAPIEndpointOutput"
-          ]
-        }
-      ]
-    }
-  }
+  "function": {}
 }
