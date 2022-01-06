@@ -34,7 +34,7 @@ const projects = {
         name: 'UST Mobile App', 
         origin: 'University of St. Thomas', 
         link: 'https://apps.apple.com/us/app/u-of-st-thomas-minnesota/id1459917428', 
-        image: `${process.env.BASE_URL}assets/images/project.jpeg` 
+        image: `${process.env.BASE_URL}assets/images/mobile_app.jpeg` 
       },
     ],
   })

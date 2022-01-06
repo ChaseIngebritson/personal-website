@@ -6,7 +6,7 @@
       </b-col>
     </b-row>
     <b-row>
-      <b-col offset-md="3" md="6" class="text-center mb-3">
+      <b-col offset-md="3" md="6" class="text-center mb-5">
         <h2 class="text-white h3">Have a question? Just want to talk? Feel free to send a message!</h2>
       </b-col>
     </b-row>

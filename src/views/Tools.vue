@@ -6,7 +6,7 @@
       </b-col>
     </b-row>
     <b-row>
-      <b-col cols="3">
+      <b-col md="3">
         <b-form-group
           label="Search"
           label-for="input-search"

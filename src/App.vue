@@ -3,14 +3,7 @@
     <b-row no-gutters class="app-contents">
       <portal-target name="mobile-nav" class="mobile-nav" v-if="!$screen.md" />
       <b-col cols="12" md="2" class="map-container">
-        <MglMap
-          :accessToken="mapboxToken"
-          :mapStyle.sync="mapStyle"
-          :interactive="false"
-          :center.sync="mapCenter"
-          :zoom.sync="mapZoom"
-          class="map"
-        />
+        <Map class="map" />
       </b-col>
       <b-col class="app-sub-contents" :class="{ 'route-scroll': routeScroll }">
         <b-container fluid class="content-grid">
@@ -52,20 +45,16 @@
 </template>
 
 <script>
-import { MglMap } from "vue-mapbox";
 import Nav from '@/components/Nav'
+import Map from '@/components/Map'
 
 export default {
   name: 'App',
   components: {
-    MglMap,
-    Nav
+    Nav,
+    Map
   },
   data: () => ({
-    mapboxToken: process.env.VUE_APP_MAPBOX_TOKEN,
-    mapStyle: 'mapbox://styles/mapbox/light-v10',
-    mapCenter: [-93.26499482579126, 44.97659137876903],
-    mapZoom: 12.055186286143732,
     scrollIsTop: true,
     scrollPercentage: 0
   }),

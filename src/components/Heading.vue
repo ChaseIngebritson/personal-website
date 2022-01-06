@@ -14,7 +14,8 @@ export default {
 @import '@/styles/shared.scss';
 
 .heading {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
 }
 
 .dash {
@@ -25,7 +26,7 @@ export default {
 
     position: absolute;
     // Half way - border offset - half the margin
-    top: calc(50% - 2px - .75rem);
+    top: calc(50% - 2px);
     height: 2px;
     left: -40px;
     width: 45px;
@@ -33,10 +34,14 @@ export default {
 }
 
 @include media-breakpoint-up(md) {
+  .heading {
+    margin-bottom: 2rem;
+  }
+
   .dash {  
     &::before {
-      border-bottom: 3px solid var(--secondary);
-      top: calc(50% - 3px - .75rem);
+      border-width: 3px;
+      top: calc(50% - 3px - .5rem);
       height: 3px;
       left: -70px;
       width: 70px;
