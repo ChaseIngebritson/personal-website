@@ -81,7 +81,7 @@
 </template>
 
 <script>
-import { API, graphqlOperation } from 'aws-amplify'
+import { API, graphqlOperation } from '@aws-amplify/api'
 import Heading from '@/components/Heading'
 import SubmitButton from '@/components/SubmitButton'
 import { createContactMessage } from '@/graphql/mutations'

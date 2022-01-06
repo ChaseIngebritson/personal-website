@@ -1,3 +1,6 @@
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+
+
 module.exports = {
   publicPath: '/',
   pages: {
@@ -5,5 +8,10 @@ module.exports = {
       entry: 'src/main.js',
       title: 'Chase Ingebritson',
     },
+  },
+  configureWebpack: {
+    plugins: [
+      new BundleAnalyzerPlugin()
+    ]
   }
 }

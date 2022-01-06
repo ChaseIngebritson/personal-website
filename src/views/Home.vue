@@ -5,6 +5,7 @@
       <b-col cols="5" sm="5" md="5" lg="4" xl="4" align-self="center" class="headshot-container">
         <b-img 
           :src="`${baseUrl}assets/images/headshot.jpeg`" 
+          alt="Chase Ingebritson headshot"
           right
           class="headshot"
         />
