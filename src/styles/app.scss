@@ -3,6 +3,8 @@
 @import '~bootstrap/scss/bootstrap.scss';
 @import '~bootstrap-vue/src/index.scss';
 
+@import 'forms.scss';
+
 body {
   background-color: var(--primary);
 }
@@ -19,7 +21,6 @@ h1 {
 
 h2 {
   color: var(--secondary);
-  font-size: 48px;
 }
 
 h3 {
@@ -31,4 +32,18 @@ h3 {
   padding-left: 2rem;
   padding-right: 2rem;
   font-weight: bold;
+}
+
+.dash {
+  &::before {
+    content: "";
+    border-bottom: 2px solid var(--secondary);
+    border-radius: 10px;
+
+    position: absolute;
+    top: calc(50% - 2px);
+    height: 2px;
+    left: -40px;
+    width: 45px;
+  }
 }

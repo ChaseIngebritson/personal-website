@@ -1,5 +1,5 @@
 <template>
-  <b-navbar type="dark" toggleable="md">
+  <b-navbar type="dark" toggleable="md" :class="{ bordered }" :style="cssVars">
     <b-button 
       v-b-toggle.nav-collapse 
       variant="outline-primary"
@@ -10,9 +10,9 @@
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav>
         <b-nav-item to="/" :active="$route.name === 'home'">Home</b-nav-item>
-        <!-- <b-nav-item to="portfolio" :active="$route.name === 'portfolio'">Portfolio</b-nav-item>
+        <b-nav-item to="portfolio" :active="$route.name === 'portfolio'">Portfolio</b-nav-item>
         <b-nav-item to="tools" :active="$route.name === 'tools'">Tools</b-nav-item>
-        <b-nav-item to="contact" :active="$route.name === 'contact'">Contact</b-nav-item> -->
+        <b-nav-item to="contact" :active="$route.name === 'contact'">Contact</b-nav-item>
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
@@ -27,24 +27,42 @@ export default {
     Hamburger
   },
   props: {
-    routes: Object
+    routes: Object,
+    bordered: {
+      type: Boolean,
+      default: false
+    },
+    percentageScrolled: {
+      type: Number,
+      default: 0
+    }
   },
   data: () => ({
-    navIsOpen: false
+    navIsOpen: false,
+    scrolledToTop: true
   }),
+  computed: {
+    cssVars () {
+      return {
+        '--border-percent': `${this.percentageScrolled}%` ,
+      }
+    }
+  },
   mounted () {
     this.$root.$on('bv::collapse::state', (target) => {
       if (target === 'nav-collapse') this.navIsOpen = !this.navIsOpen
     })
-
-    console.log(this.$router.currentRoute)
   }
 }
 </script>
 
 <style scoped lang="scss">
+@import '@/styles/shared.scss';
+
 .navbar {
   position: fixed;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .navbar-dark .navbar-nav .nav-link {
@@ -77,6 +95,26 @@ export default {
   &:hover:before, &:active:before, &.active:before {
     transform: scaleX(1);
     left: 12px;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .navbar {
+    margin-bottom: 1rem;
+
+     &::before {
+      content: '';
+      transition: 0.3s ease-out width;
+      border-bottom: 3px solid var(--secondary);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+    }
+
+    &.bordered::before {
+      width: var(--border-percent);
+    }
   }
 }
 </style>

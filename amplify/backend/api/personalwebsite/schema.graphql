@@ -1,0 +1,7 @@
+type ContactMessage @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  email: AWSEmail
+  name: String
+  message: String
+}
+ 

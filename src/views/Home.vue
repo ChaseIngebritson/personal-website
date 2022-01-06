@@ -2,7 +2,7 @@
   <b-col class="content">
     <!-- Using form-row for the compact gutters -->
     <div :is="$screen.md ? 'b-row' : 'b-form-row'" align-h="start">
-      <b-col cols="5" sm="4" md="4" lg="4" xl="3" align-self="center" class="headshot-container">
+      <b-col cols="5" sm="5" md="5" lg="4" xl="4" align-self="center" class="headshot-container">
         <b-img 
           :src="`${baseUrl}assets/images/headshot.jpeg`" 
           right
@@ -19,7 +19,7 @@
       <b-col align-self="center" md="6">
         <h3>Hello! I'm</h3>
         <h1>Chase Ingebritson</h1>
-        <h2>Software Engineer</h2>
+        <h2 class="subheading">Software Engineer</h2>
         <p>
           I'm focused on the design and creation of comprehensive web-based solutions that utilize and build upon new, innovative technologies. 
           I have experience working with teams to roadmap tasks and assist in guiding projects from inception to launch.
@@ -29,8 +29,7 @@
             :size="$screen.md ? 'lg' : 'md'"
             :block="!$screen.md"
             class="contact-me"
-            :href="mailLink"
-            target="_blank">
+            to="contact">
             Contact Me
           </b-button>
           <b-button 
@@ -52,23 +51,16 @@ export default {
   name: 'Home',
   data: () => ({
     baseUrl: process.env.BASE_URL,
-  }),
-  computed: {
-    mailLink () {
-      const subject = encodeURIComponent('Hi Chase, I\'d like to get in touch!')
-      return `mailto:chase@inge.me?subject=${subject}`
-    }
-  }
+  })
 }
 </script>
 
 <style lang="scss" scoped>
-@import '@/styles/theme.scss';
-@import '~bootstrap/scss/bootstrap.scss';
+@import '@/styles/shared.scss';
 
 .content {
   z-index: 2;
-  transform: translateY(-15%);
+  transform: translateY(-5vh);
 }
 
 .headshot {
@@ -91,6 +83,16 @@ export default {
 
 .button-container > .row {
   height: 100%;
+}
+
+.subheading {
+  font-size: 2rem;
+}
+
+@media screen and (min-width: 400px) {
+  .content {
+    transform: translateY(-10vh);
+  }
 }
 
 @include media-breakpoint-up(md) {

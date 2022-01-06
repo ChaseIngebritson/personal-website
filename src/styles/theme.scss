@@ -5,3 +5,11 @@ $secondary: #5AFFA3;
 $light: #5AFFA3;
 $dark: #0A0E29;
 $font-family-sans-serif: 'Montserrat', sans-serif;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 456px,
+  md: 789px,
+  lg: 999px,
+  xl: 1450px,
+);

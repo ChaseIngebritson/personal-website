@@ -8,6 +8,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "aws-amplify": "^4.3.11",
     "bootstrap": "v4.5.3",
     "bootstrap-icons": "^1.6.1",
     "bootstrap-vue": "^2.21.2",
