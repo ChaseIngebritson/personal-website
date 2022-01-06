@@ -1,7 +1,7 @@
 <template>
   <b-container class="tools-view">
     <b-row>
-      <b-col offset="2" offset-md="1">
+      <b-col offset="2" offset-md="1" offset-xl="0">
         <Heading>Tools</Heading>
       </b-col>
     </b-row>
