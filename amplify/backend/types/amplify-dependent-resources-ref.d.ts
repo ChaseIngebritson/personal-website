@@ -13,5 +13,18 @@ export type AmplifyDependentResourcesAttributes = {
             "Region": "string",
             "LambdaExecutionRole": "string"
         }
+    },
+    "auth": {
+        "personalwebsite": {
+            "IdentityPoolId": "string",
+            "IdentityPoolName": "string"
+        }
+    },
+    "analytics": {
+        "personalwebsite": {
+            "Region": "string",
+            "Id": "string",
+            "appName": "string"
+        }
     }
 }

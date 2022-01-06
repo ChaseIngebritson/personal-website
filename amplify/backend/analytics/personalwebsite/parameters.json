@@ -1,0 +1,21 @@
+{
+    "appName": "personalwebsite",
+    "roleName": "pinpointLambdaRoleb7a4a46e",
+    "cloudformationPolicyName": "cloudformationPolicyb7a4a46e",
+    "cloudWatchPolicyName": "cloudWatchPolicyb7a4a46e",
+    "pinpointPolicyName": "pinpointPolicyb7a4a46e",
+    "authPolicyName": "pinpoint_amplify_b7a4a46e",
+    "unauthPolicyName": "pinpoint_amplify_b7a4a46e",
+    "authRoleName": {
+        "Ref": "AuthRoleName"
+    },
+    "unauthRoleName": {
+        "Ref": "UnauthRoleName"
+    },
+    "authRoleArn": {
+        "Fn::GetAtt": [
+            "AuthRole",
+            "Arn"
+        ]
+    }
+}
