@@ -1,10 +1,29 @@
 import Vue from 'vue'
-import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
+import { 
+  LayoutPlugin, 
+  ImagePlugin, 
+  ButtonPlugin, 
+  NavPlugin, 
+  LinkPlugin, 
+  BadgePlugin, 
+  FormTextareaPlugin, 
+  FormGroupPlugin,
+  FormPlugin,
+  CollapsePlugin,
+  NavbarPlugin,
+  FormInputPlugin,
+  BIconGithub,
+  BIconTwitter,
+  BIconLinkedin,
+  BIconFileEarmarkArrowDownFill,
+  BIconEnvelope,
+  BIconCheckCircle
+} from 'bootstrap-vue'
 import VueMapbox from "vue-mapbox";
 import Mapbox from "mapbox-gl";
 import PortalVue from 'portal-vue'
 import VueScreen from 'vue-screen'
-import Amplify from 'aws-amplify'
+import Amplify from '@aws-amplify/core'
 import VueRouter from 'vue-router'
 
 import awsconfig from './aws-exports'
@@ -15,8 +34,28 @@ import '@/styles/app.scss'
 
 Amplify.configure(awsconfig)
 
-Vue.use(BootstrapVue)
-Vue.use(IconsPlugin)
+// Bootstrap Vue
+Vue.use(LayoutPlugin)
+Vue.use(ImagePlugin)
+Vue.use(ButtonPlugin)
+Vue.use(NavPlugin)
+Vue.use(LinkPlugin)
+Vue.use(BadgePlugin)
+Vue.use(FormTextareaPlugin)
+Vue.use(FormGroupPlugin)
+Vue.use(FormPlugin)
+Vue.use(CollapsePlugin)
+Vue.use(NavbarPlugin)
+Vue.use(FormInputPlugin)
+
+// Bootstrap Vue Icons
+Vue.component('BIconGithub', BIconGithub)
+Vue.component('BIconTwitter', BIconTwitter)
+Vue.component('BIconLinkedin', BIconLinkedin)
+Vue.component('BIconFileEarmarkArrowDownFill', BIconFileEarmarkArrowDownFill)
+Vue.component('BIconEnvelope', BIconEnvelope)
+Vue.component('BIconCheckFill', BIconCheckCircle)
+
 Vue.use(VueMapbox, { mapboxgl: Mapbox })
 Vue.use(VueRouter)
 Vue.use(PortalVue)

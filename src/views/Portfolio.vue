@@ -11,6 +11,7 @@
         <Link 
           :href="project.link" 
           target="_blank" 
+          rel="noopener"
           class="h3 text-white mb-0"
           v-if="project.link"
         >

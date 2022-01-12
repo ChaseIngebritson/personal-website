@@ -33,9 +33,9 @@
 
             <!-- Icons -->
             <b-col cols="12" class="social-icons">
-              <b-link href="https://github.com/ChaseIngebritson"><BIconGithub /></b-link>
-              <b-link href="https://twitter.com/Goslopo"><BIconTwitter /></b-link>
-              <b-link href="https://www.linkedin.com/in/chase-ingebritson/"><BIconLinkedin /></b-link>
+              <b-link href="https://github.com/ChaseIngebritson"><b-icon-github /></b-link>
+              <b-link href="https://twitter.com/Goslopo"><b-icon-twitter /></b-link>
+              <b-link href="https://www.linkedin.com/in/chase-ingebritson/"><b-icon-linkedin /></b-link>
             </b-col>
           </b-row>
         </b-container>

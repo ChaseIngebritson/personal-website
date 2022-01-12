@@ -69,11 +69,11 @@
         :error="request.error"
       >
         Submit
-        <b-icon icon="envelope" class="pl-2" />
+        <b-icon-envelope class="pl-2" />
 
         <template v-slot:done>
           Done
-          <b-icon icon="check-circle" class="pl-2" />
+          <b-icon-check-circle class="pl-2" />
         </template>
       </SubmitButton>
     </b-form>
@@ -81,7 +81,7 @@
 </template>
 
 <script>
-import { API, graphqlOperation } from 'aws-amplify'
+import { API, graphqlOperation } from '@aws-amplify/api'
 import Heading from '@/components/Heading'
 import SubmitButton from '@/components/SubmitButton'
 import { createContactMessage } from '@/graphql/mutations'
