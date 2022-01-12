@@ -8,7 +8,8 @@
           :src="`${imgUrl}/headshot.jpeg`" 
           :sizes="[
             '(max-width: 200px) 175px',
-            '(max-width: 403px) 175px',
+            '(max-width: 403px) 140px',
+            '(max-width: 500px) 150px',
             '(max-width: 542px) 175px',
             '(max-width: 691px) 225px',
             '(max-width: 824px) 275px',
@@ -120,6 +121,9 @@ export default {
 }
 
 @include media-breakpoint-up(md) {
+  h1 { 
+    font-size: 64px;
+  }
   .content {
     transform: translateX(-7.5%);
   }
