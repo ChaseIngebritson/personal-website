@@ -4,8 +4,33 @@
     <div :is="$screen.md ? 'b-row' : 'b-form-row'" align-h="start">
       <b-col cols="5" sm="5" md="5" lg="4" xl="4" align-self="center" class="headshot-container">
         <b-img 
-          :src="`${baseUrl}assets/images/headshot.jpeg`" 
           alt="Chase Ingebritson headshot"
+          :src="`${imgUrl}/headshot.jpeg`" 
+          :sizes="[
+            '(max-width: 200px) 175px',
+            '(max-width: 403px) 175px',
+            '(max-width: 542px) 175px',
+            '(max-width: 691px) 225px',
+            '(max-width: 824px) 275px',
+            '(max-width: 949px) 300px',
+            '(max-width: 1076px) 300px',
+            '(max-width: 1178px) 325px',
+            '(max-width: 1385px) 350px',
+            '(max-width: 1400px) 425px',
+            '500px'
+          ]"
+          :srcset="[
+            `${imgUrl}/headshot_wmrvrb_c_scale,w_200.jpg 200w`,
+            `${imgUrl}/headshot_wmrvrb_c_scale,w_403.jpg 403w`,
+            `${imgUrl}/headshot_wmrvrb_c_scale,w_542.jpg 542w`,
+            `${imgUrl}/headshot_wmrvrb_c_scale,w_691.jpg 691w`,
+            `${imgUrl}/headshot_wmrvrb_c_scale,w_824.jpg 824w`,
+            `${imgUrl}/headshot_wmrvrb_c_scale,w_949.jpg 949w`,
+            `${imgUrl}/headshot_wmrvrb_c_scale,w_1076.jpg 1076w`,
+            `${imgUrl}/headshot_wmrvrb_c_scale,w_1178.jpg 1178w`,
+            `${imgUrl}/headshot_wmrvrb_c_scale,w_1385.jpg 1385w`,
+            `${imgUrl}/headshot_wmrvrb_c_scale,w_1400.jpg 1400w`
+          ]"
           right
           class="headshot"
         />
@@ -39,7 +64,7 @@
             :block="!$screen.md"
             href="https://www.linkedin.com/in/chase-ingebritson/">
             Download CV
-            <BIconFileEarmarkArrowDownFill class="download-icon" />
+            <b-icon-file-earmark-arrow-down-fill class="download-icon" />
           </b-button>
         </portal>
       </b-col>
@@ -51,7 +76,7 @@
 export default {
   name: 'Home',
   data: () => ({
-    baseUrl: process.env.BASE_URL,
+    imgUrl: `${process.env.BASE_URL}assets/images`,
   })
 }
 </script>
@@ -66,8 +91,6 @@ export default {
 
 .headshot {
   border-radius: 7px;
-  max-width: 100%;
-  max-height: 250px;
 }
 
 .contact-me {

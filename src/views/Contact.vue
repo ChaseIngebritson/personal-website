@@ -69,11 +69,11 @@
         :error="request.error"
       >
         Submit
-        <b-icon icon="envelope" class="pl-2" />
+        <b-icon-envelope class="pl-2" />
 
         <template v-slot:done>
           Done
-          <b-icon icon="check-circle" class="pl-2" />
+          <b-icon-check-circle class="pl-2" />
         </template>
       </SubmitButton>
     </b-form>

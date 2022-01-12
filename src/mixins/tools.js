@@ -5,7 +5,7 @@ const tools = {
       'NodeJS', 'Terraform', 'AWS', 'OpenStreetMap', 'Mapbox', 'Ionic', 'three.js', 'Amplify', 'Deck.gl', 'Luma.gl', 'Babylon.js',
       'AWS CloudFormation', 'AWS Lambda', 'Serverless', 'AWS API Gateway', 'AWS Route53', 'AWS CloudWatch', 'AWS SES', 'AWS ElasticBeanstalk', 
       'AWS Cognito', 'MongoDB', 'AWS CodeStar', 'AWS LightSail', 'AWS DynamoDB', 'AWS DocumentDB', 'Bootstrap', 'Axios', 'Express', 
-      'Lodash', 'Jest', 'Vuetify', 'LTIjs', 'JOI'
+      'Lodash', 'Jest', 'Vuetify', 'LTIjs', 'JOI', 'Javascript'
     ]
   })
 }
