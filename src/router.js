@@ -1,7 +1,7 @@
 import VueRouter from 'vue-router'
-import Home from '@/views/Home'
 import { STTHOMAS_COORDINATES, MINNEAPOLIS_COORDINATES, MINNEAPOLIS_ZOOM, STTHOMAS_ZOOM } from '@/constants/map'
 
+const Home = () => import('@/views/Home')
 const Portfolio = () => import('@/views/Portfolio')
 const Tools = () => import('@/views/Tools')
 const Contact = () => import('@/views/Contact')
