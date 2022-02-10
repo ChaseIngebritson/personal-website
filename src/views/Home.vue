@@ -63,7 +63,7 @@
             :size="$screen.md ? 'lg' : 'md'" 
             variant="outline-secondary"
             :block="!$screen.md"
-            href="https://www.linkedin.com/in/chase-ingebritson/">
+            @click.prevent="downloadCv()">
             Download CV
             <b-icon-file-earmark-arrow-down-fill class="download-icon" />
           </b-button>
@@ -74,11 +74,26 @@
 </template>
 
 <script>
+import Storage from '@aws-amplify/storage'
+
 export default {
   name: 'Home',
   data: () => ({
     imgUrl: `${process.env.BASE_URL}assets/images`,
-  })
+    pdfUrl: `${process.env.BASE_URL}assets/pdfs`,
+  }),
+  methods: {
+    async downloadCv () {
+      const cvUrl = await Storage.get('Resume021022.pdf', {
+        download: true
+      })
+
+      const link = document.createElement('a')
+      link.href = URL.createObjectURL(cvUrl.Body)
+      link.download = 'ChaseIngebritsonCV.pdf'
+      link.click()
+    }
+  }
 }
 </script>
 

@@ -17,7 +17,12 @@ export type AmplifyDependentResourcesAttributes = {
     "auth": {
         "personalwebsite": {
             "IdentityPoolId": "string",
-            "IdentityPoolName": "string"
+            "IdentityPoolName": "string",
+            "UserPoolId": "string",
+            "UserPoolArn": "string",
+            "UserPoolName": "string",
+            "AppClientIDWeb": "string",
+            "AppClientID": "string"
         }
     },
     "analytics": {
@@ -25,6 +30,12 @@ export type AmplifyDependentResourcesAttributes = {
             "Region": "string",
             "Id": "string",
             "appName": "string"
+        }
+    },
+    "storage": {
+        "s3personalwebsitestoraged1o1cjjffo6jmz": {
+            "BucketName": "string",
+            "Region": "string"
         }
     }
 }

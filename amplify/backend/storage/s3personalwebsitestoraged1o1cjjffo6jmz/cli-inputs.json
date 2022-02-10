@@ -1,0 +1,14 @@
+{
+  "resourceName": "s3personalwebsitestoraged1o1cjjffo6jmz",
+  "bucketName": "personal-website-storage-d1o1cjjffo6jmz",
+  "policyUUID": "8add4ec8",
+  "storageAccess": "authAndGuest",
+  "guestAccess": [
+    "READ"
+  ],
+  "authAccess": [
+    "READ",
+    "CREATE_AND_UPDATE",
+    "DELETE"
+  ]
+}
