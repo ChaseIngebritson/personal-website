@@ -24,6 +24,7 @@ import Mapbox from "mapbox-gl";
 import PortalVue from 'portal-vue'
 import VueScreen from 'vue-screen'
 import Amplify from '@aws-amplify/core'
+import Analytics from '@aws-amplify/analytics';
 import VueRouter from 'vue-router'
 
 import awsconfig from './aws-exports'
@@ -33,6 +34,16 @@ import router from '@/router'
 import '@/styles/app.scss'
 
 Amplify.configure(awsconfig)
+
+const analyticsConfig = {
+  AWSPinpoint: {
+    appId: process.env.VUE_APP_AWS_PINPOINT_APP_ID,
+    region: process.env.VUE_APP_AWS_REGION,
+    mandatorySignIn: false,
+  }
+}
+
+Analytics.configure(analyticsConfig)
 
 // Bootstrap Vue
 Vue.use(LayoutPlugin)
