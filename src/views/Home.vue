@@ -64,7 +64,7 @@
             variant="outline-secondary"
             :block="!$screen.md"
             :href="`${pdfUrl}/cv.pdf`"
-            download="ChaseIngebritsonCV.pdf">
+            @click.prevent="getCvUrl()">
             Download CV
             <b-icon-file-earmark-arrow-down-fill class="download-icon" />
           </b-button>
@@ -75,12 +75,19 @@
 </template>
 
 <script>
+import Storage from '@aws-amplify/storage'
+
 export default {
   name: 'Home',
   data: () => ({
     imgUrl: `${process.env.BASE_URL}assets/images`,
     pdfUrl: `${process.env.BASE_URL}assets/pdfs`,
-  })
+  }),
+  methods: {
+    async getCvUrl () {
+      return await Storage.get('Resume021022.pdf')
+    }
+  }
 }
 </script>
 
