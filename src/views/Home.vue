@@ -63,7 +63,8 @@
             :size="$screen.md ? 'lg' : 'md'" 
             variant="outline-secondary"
             :block="!$screen.md"
-            href="https://www.linkedin.com/in/chase-ingebritson/">
+            :href="`${pdfUrl}/cv.pdf`"
+            download="ChaseIngebritsonCV.pdf">
             Download CV
             <b-icon-file-earmark-arrow-down-fill class="download-icon" />
           </b-button>
@@ -78,6 +79,7 @@ export default {
   name: 'Home',
   data: () => ({
     imgUrl: `${process.env.BASE_URL}assets/images`,
+    pdfUrl: `${process.env.BASE_URL}assets/pdfs`,
   })
 }
 </script>
