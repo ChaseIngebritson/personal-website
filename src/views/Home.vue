@@ -63,8 +63,7 @@
             :size="$screen.md ? 'lg' : 'md'" 
             variant="outline-secondary"
             :block="!$screen.md"
-            :href="`${pdfUrl}/cv.pdf`"
-            @click.prevent="getCvUrl()">
+            @click.prevent="downloadCv()">
             Download CV
             <b-icon-file-earmark-arrow-down-fill class="download-icon" />
           </b-button>
@@ -84,8 +83,15 @@ export default {
     pdfUrl: `${process.env.BASE_URL}assets/pdfs`,
   }),
   methods: {
-    async getCvUrl () {
-      return await Storage.get('Resume021022.pdf')
+    async downloadCv () {
+      const cvUrl = await Storage.get('Resume021022.pdf', {
+        download: true
+      })
+
+      const link = document.createElement('a')
+      link.href = URL.createObjectURL(cvUrl.Body)
+      link.download = 'ChaseIngebritsonCV.pdf'
+      link.click()
     }
   }
 }

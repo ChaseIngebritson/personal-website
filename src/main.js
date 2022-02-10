@@ -23,8 +23,11 @@ import VueMapbox from "vue-mapbox";
 import Mapbox from "mapbox-gl";
 import PortalVue from 'portal-vue'
 import VueScreen from 'vue-screen'
-import Amplify from '@aws-amplify/core'
 import VueRouter from 'vue-router'
+import Amplify from '@aws-amplify/core'
+import Auth from '@aws-amplify/auth'
+import Storage from '@aws-amplify/storage'
+import Analytics from '@aws-amplify/analytics'
 
 import awsconfig from './aws-exports'
 import App from '@/App.vue'
@@ -33,6 +36,9 @@ import router from '@/router'
 import '@/styles/app.scss'
 
 Amplify.configure(awsconfig)
+Auth.configure(awsconfig)
+Storage.configure(awsconfig)
+Analytics.configure(awsconfig)
 
 // Bootstrap Vue
 Vue.use(LayoutPlugin)
